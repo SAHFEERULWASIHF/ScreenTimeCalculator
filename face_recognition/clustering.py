@@ -1,4 +1,3 @@
-# clustering.py
 from sklearn.cluster import DBSCAN
 
 def cluster_faces(face_embeddings):
