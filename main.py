@@ -1,4 +1,3 @@
-# main.py
 from face_recognition.face_recognition import FaceRecognition
 
 if __name__ == "__main__":
