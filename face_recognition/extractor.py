@@ -1,4 +1,3 @@
-# extractor.py
 import cv2
 import numpy as np
 from retinaface import RetinaFace
@@ -6,65 +5,28 @@ from keras_facenet import FaceNet
 
 facenet = FaceNet()
 
-# def extract_faces(video_path):
-#     cap = cv2.VideoCapture(video_path)
-#     face_embeddings = []
-#     face_images = []
-#     fps = cap.get(cv2.CAP_PROP_FPS)
-#     total_frames = 0
-
-#     while cap.isOpened():
-#         ret, frame = cap.read()
-#         if not ret:
-#             break
-
-#         total_frames += 1
-#         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-#         results = RetinaFace.detect_faces(rgb_frame)
-
-#         if isinstance(results, dict):
-#             for key in results:
-#                 box = results[key]['facial_area']
-#                 x1, y1, x2, y2 = box[0], box[1], box[2], box[3]
-#                 face = rgb_frame[y1:y2, x1:x2]
-#                 if face.size == 0:
-#                     continue
-
-#                 face_resized = cv2.resize(face, (160, 160))
-#                 face_expanded = np.expand_dims(face_resized, axis=0)
-#                 embedding = facenet.embeddings(face_expanded)
-#                 face_embeddings.append(embedding)
-#                 face_images.append(face_resized)
-
-#     cap.release()
-#     return np.array(face_embeddings).reshape(len(face_embeddings), -1), face_images, fps, total_frames
-
-
 def extract_faces(video_path):
     cap = cv2.VideoCapture(video_path)
-    face_embeddings = []  # List to store individual embeddings
-    face_images = []      # List to store individual face images
+    face_embeddings = []
+    face_images = []
 
-    # Get the frame rate of the video
     fps = cap.get(cv2.CAP_PROP_FPS)
     print(f"Frame rate of the video: {fps}")
 
-    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))  # Total number of frames in the video
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     print(f"Total frames in the video: {total_frames}")
 
-    processed_frames = 0  # Counter for processed frames
+    processed_frames = 0  
 
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             break
         
-        processed_frames += 1  # Increment processed frame count
+        processed_frames += 1  
         
-        # Calculate current time in seconds
         current_time = processed_frames / fps
 
-        # Display progress
         print(f"Processing frame {processed_frames}/{total_frames} - Time: {current_time:.2f}s  completed: {100 * processed_frames / total_frames:.2f}%", end='\r')
 
         rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -76,7 +38,7 @@ def extract_faces(video_path):
                 x1, y1, x2, y2 = box[0], box[1], box[2], box[3]
                 face = rgb_frame[y1:y2, x1:x2]
                 if face.size == 0:
-                    continue  # Skip if no face is detected
+                    continue 
 
                 face_resized = cv2.resize(face, (160, 160))
                 face_expanded = np.expand_dims(face_resized, axis=0)
@@ -86,7 +48,6 @@ def extract_faces(video_path):
 
     cap.release()
     
-    # Check if we have any face embeddings
     if not face_embeddings:
         print("No faces detected in the video.")
         return np.array([]), [], fps, total_frames
