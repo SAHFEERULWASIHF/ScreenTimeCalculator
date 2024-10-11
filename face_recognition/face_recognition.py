@@ -1,4 +1,3 @@
-# face_recognition.py
 from .extractor import extract_faces
 from .clustering import cluster_faces
 from .visualization import visualize_and_label_clusters
