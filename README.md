@@ -41,25 +41,6 @@
 The program will output the detected characters along with their respective screen time. Below is an example of the expected output format:
 
 ```
-Processing complete!
-
-Please label this face (Cluster -1): peter
-Labeled as: peter
-Cluster peter has a screen time of: 0.05 seconds with a screen presence of: 0.21%.
-Please label this face (Cluster 0): dr octo
-Labeled as: dr octo
-Cluster dr octo has a screen time of: 7.08 seconds with a screen presence of: 29.64%.
-Please label this face (Cluster 1): peter
-Labeled as: peter
-Cluster peter has a screen time of: 8.88 seconds with a screen presence of: 37.17%.
-Please label this face (Cluster 2): peter
-Labeled as: peter
-Cluster peter has a screen time of: 4.55 seconds with a screen presence of: 19.04%.
-All specified faces have been labeled.
-
-
-
-
 Total screen time for peter: 13.48 seconds based on 809 frames
 Total screen time for dr octo: 7.08 seconds based on 425 frames
 ```
