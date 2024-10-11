@@ -1,5 +1,6 @@
+tensorflow
 opencv-python
 keras-facenet
-retinaface
+git+https://github.com/serengil/retinaface.git
 scikit-learn
 matplotlib
