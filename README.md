@@ -41,15 +41,19 @@
 The program will output the detected characters along with their respective screen time. Below is an example of the expected output format:
 
 ```
-Total screen time for peter: 13.48 seconds based on 809 frames
-Total screen time for dr octo: 7.08 seconds based on 425 frames
+Total screen time for women: 35.34 seconds based on 848 frames
+Total screen time for kamal: 9.17 seconds based on 220 frames
 ```
 
 Additionally, a visual representation (e.g., a plot or chart) may be displayed to illustrate the screen time distribution among characters.
 
-![Sample Output]<!-- Replace with an actual image link -->
+[Sample Input]<!-- Replace with an actual image link -->
 
 
-https://github.com/user-attachments/assets/90027074-fdb4-4937-b824-310035fa6f71
+https://github.com/user-attachments/assets/22680f19-d24d-4f5c-abb5-7db4a3455c5c
 
+[Respective Sample Output]<!-- Replace with an actual image link -->
+
+
+https://github.com/user-attachments/assets/ca224afc-fa96-4464-b47c-7906ce027ca2
 
